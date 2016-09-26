@@ -1,0 +1,61 @@
+<html ng-app="mallApp">
+<head>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <table>
+<!--
+    <tr>
+      <td>
+        <ul class="malls">
+          <li ng-repeat="mall in malls">
+            <span>{{mall.name}}</span>
+            <p>{{mall.status}}</p>
+          </li>
+        </ul>
+      </td>
+      <td>
+        
+      </td>
+    </tr>
+-->
+    <tr>
+      <td ng-controller="MallListController">
+        <div>
+          <ul class="malls">
+            Search: <input ng-model="mallName" />
+            <li ng-repeat="mall in malls | filter:mallName">
+              <span>{{mall.name}}</span>
+              <p>{{mall.status}}</p>
+            </li>
+          </ul>
+        </div>
+      </td>
+      <td ng-controller="CityListController">
+        <div>
+          <ul class="cities">
+            Search: <input ng-model="cityName" />
+            <li ng-repeat="city in cities | filter:cityName">
+              <span>{{city.name}}</span>
+              <p>{{city.status}}</p>
+            </li>
+          </ul>
+        </div>
+      </td>
+      
+     <td ng-controller="filterController">
+        <div>
+          <ul class="results">
+            <li>
+              <span></span>
+              <p></p>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
